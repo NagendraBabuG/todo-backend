@@ -1,8 +1,9 @@
 const express = require('express')
 const admin = require('./config/firebase')
-const CORS = require('cors')
+const cors = require('cors')
 const PORT = process.env.PORT || 3001
 const app = express()
+app.use(cors())
 app.use(express.json())
 app.use('/api', require('./routes/user'))
 app.post('/createUser', async(req, res) => {
